@@ -1,7 +1,5 @@
-package com.rocketseat.planner.activities;
+package com.rocketseat.planner.link;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 import com.rocketseat.planner.trip.Trip;
@@ -10,12 +8,12 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "activities")
+@Table(name = "links")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Activity {
+public class Link {
   
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,16 +22,16 @@ public class Activity {
   @Column(nullable = false)
   private String title;
 
-  @Column(name = "occurs_at", nullable = false)
-  private LocalDateTime occursAt;
+  @Column(nullable = false)
+  private String url;
 
   @ManyToOne
   @JoinColumn(name = "trip_id", nullable = false)
   private Trip trip;
 
-  public Activity(String title, String occursAt, Trip trip) {
+  public Link(String title, String url, Trip trip) {
     this.title = title;
-    this.occursAt = LocalDateTime.parse(occursAt, DateTimeFormatter.ISO_DATE_TIME);
+    this.url = url;
     this.trip = trip;
   }
 }

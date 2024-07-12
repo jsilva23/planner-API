@@ -1,4 +1,4 @@
-package com.rocketseat.planner.activities;
+package com.rocketseat.planner.activity;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,7 +6,6 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rocketseat.planner.participant.ParticipantData;
 import com.rocketseat.planner.trip.Trip;
 
 @Service
